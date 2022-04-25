@@ -63,15 +63,15 @@ public class BOJ2667 {
 
         while(!q.isEmpty()) {
             Integer[] target = q.poll();
-            int tX = target[0];
-            int tY = target[1];
+            int cX = target[0];
+            int cY = target[1];
 
             for(int i = 0; i < dx.length; i++) {
-                tX += dx[i];
-                tY += dy[i];
+                int tX = cX + dx[i];
+                int tY = cY + dy[i];
 
                 if(tX >= 0 && tY >= 0 && tX < n && tY < n) {
-                    if((apart[tX][tY] != 0) && !checked[tX][tY]) {
+                    if(apart[tX][tY] == 1 && !checked[tX][tY]) {
                         q.offer(new Integer[] {tX, tY});
                         checked[tX][tY] = true;
                         count[countNum]++;
